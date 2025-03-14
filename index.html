@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>车税计算器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">车税计算器</h1>
+    <form class="form" id="calculator-form">
+      <div class="input-group">
+        <label for="car-price">车价（元）：</label>
+        <input type="number" id="car-price" placeholder="请输入车价" required>
+      </div>
+      <div class="input-group">
+        <label for="term">期限（年）：</label>
+        <input type="number" id="term" placeholder="请输入期限" min="1" required>
+      </div>
+      <div class="input-group">
+        <label for="rate">费率（%）：</label>
+        <input type="number" id="rate" placeholder="请输入费率" step="0.01" required>
+      </div>
+      <div class="input-group">
+        <label>还款方式：</label>
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="radio" name="repayment-method" value="等额本息" checked>
+            <span class="toggle-handle"></span>
+            <span class="toggle-label">等额本息</span>
+          </label>          <label class="toggle">
+            <input type="radio" name="repayment-method" value="等额本金">
+            <span class="toggle-handle"></span>
+            <span class="toggle-label">等额本金</span>
+          </label>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="insurance">保险费用（元）：</label>
+        <input type="number" id="insurance" placeholder="0">
+      </div>
+      <div class="input-group">
+        <label for="down-payment">首付（元）：</label>
+        <input type="number" id="down-payment" placeholder="0">
+      </div>
+      <div class="input-group">
+        <label for="tax">税额（元）：</label>
+        <input type="number" id="tax" placeholder="0">
+      </div>
+      <button type="button" onclick="calculate()">计算</button>
+    </form>
+  </main>
+
+  <!-- Modal for Results -->
+  <div id="result-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>计算结果：</h2>
+      <div id="result-details"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
